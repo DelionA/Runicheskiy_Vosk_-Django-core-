@@ -1,0 +1,17 @@
+{% extends 'RV/base.html' %}
+
+  {% block title %}
+    some title
+  {% endblock %}
+
+
+  {% block content %}
+    <form  class="" action="{% url 'show_result' %}" method="post">
+      {% csrf_token %}
+      {% for field in form %}
+
+        {{ field }}
+      {% endfor %}
+      <button type="submit" >Send</button>
+    </form>
+  {% endblock %}
