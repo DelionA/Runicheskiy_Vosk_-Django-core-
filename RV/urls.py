@@ -1,8 +1,9 @@
 
 from django.urls import path
-from .views import RasskladView, RasskladShow
+from .views import *
 
 urlpatterns = [
-    path('', RasskladView.as_view(), name="start_start"),
-    path('rv/', RasskladShow, name="show_result")
+    path('runicheskiyvosk/', RvIndex.as_view(), name="rv_index"),
+    path('runicheskiyvosk_resalt/', RvResult.as_view(), name="rv_result"),
+
 ]

@@ -10,3 +10,5 @@ class RunicheskiyVosk(models.Model):
     runa_5 = models.CharField(max_length=15, choices=Futark.futark)
     runa_6 = models.CharField(max_length=15, choices=Futark.futark)
     runa_7 = models.CharField(max_length=15, choices=Futark.futark)
+
+    

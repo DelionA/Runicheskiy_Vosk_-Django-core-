@@ -1,0 +1,43 @@
+{% extends 'RV/base.html' %}
+
+  {% block title %}
+    some title
+  {% endblock %}
+
+
+  {% block content %}
+    <form  class="container mt-5 needs-validation" action="{% url 'rv_result' %}" method="post">
+      {% csrf_token %}
+      <div class="row mb-3">
+        <div class="col">
+          {{ form.runa_1 }}
+          {{ form.runa_2 }}
+          {{ form.runa_3 }}
+          {{ form.runa_4 }}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          {{ form.runa_5 }}
+          {{ form.runa_6 }}
+        </div>
+      </div>
+      <div class="row mb-3 ">
+        <div class="col form-label">
+          {{ form.runa_7 }}
+        </div>
+      </div>
+      <button  type="submit">Отправить</button>
+
+      <div class="mt-3 text-danger">
+
+
+        {{ form.runa_2.errors }}
+        {{ form.runa_3.errors }}
+        {{ form.runa_4.errors }}
+        {{ form.runa_5.errors }}
+        {{ form.runa_6.errors }}
+        {{ form.runa_7.errors }}
+      </div>
+    </form>
+  {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'RV/base.html' %}
+
+{% block title %}
+  Rezyltats
+{% endblock %}
+
+{% block content %}
+  <form class="container mt-5" action="{% url 'rv_index' %}" method="post">
+    {% csrf_token %}
+    <div class="row mb-3">
+      <div class="col">
+        {{ form.runa_1 }}
+        {{ form.runa_2 }}
+        {{ form.runa_3 }}
+        {{ form.runa_4 }}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        {{ form.runa_5 }}
+        {{ form.runa_6 }}
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        {{ form.runa_7 }}
+      </div>
+    </div>
+
+    <button type="submit" name="button">Вернуться</button>
+  <p>
+    {{ direct_order }}
+  </p>
+  <p>
+    {{ reverse_order }}
+  </p>
+{% endblock %}
