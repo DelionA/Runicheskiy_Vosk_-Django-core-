@@ -11,6 +11,7 @@ def generate_order_answer(form_cleaned_data):
                 answer_keys[i+j] = form_cleaned_data[i] + form_cleaned_data[j]
             elif i > j:
                 answer_keys[i+j]= form_cleaned_data[i] + form_cleaned_data[j]
+    print('\nanswer_keys\n',answer_keys)
 
     for i in dataset_1:
         direct_order.append(
@@ -22,4 +23,5 @@ def generate_order_answer(form_cleaned_data):
             Mantic.mantic.get(answer_keys.get(i), 'Ne zapolneno')
         )
 
-    return direct_order, reverse_order
+    # return direct_order, reverse_order
+    return answer_keys

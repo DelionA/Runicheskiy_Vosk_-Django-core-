@@ -2,6 +2,7 @@ from django.shortcuts import render
 from RV.models import RunicheskiyVosk
 from django.views.generic import View
 from .forms import RunaForm
+from .forms import AnswersKeysForm
 from .forms import RunaFormResult
 from django.shortcuts import redirect
 from .utils import *
@@ -12,7 +13,7 @@ from .utils import *
 class RvIndex(View):
     def get(self, request):
         form = RunaForm()
-        
+
         return render(request, 'RV/rv_index.html', context={'form': form})
 
     def post(self, request):
@@ -24,9 +25,9 @@ class RvIndex(View):
 
 
 class RvResult(View):
-    def get(self, request):
-        form = RunaForm()
-        return render(request, 'RV/rv_result.html', context={'form':form})
+    # def get(self, request):
+    #     form = RunaForm()
+    #     return render(request, 'RV/rv_result.html', context={'form':form})
 
     def post(self, request):
         form = RunaForm(request.POST)
@@ -35,17 +36,21 @@ class RvResult(View):
         }
 
         if form.is_valid():
+            form.save()
             # print('**************')
             form_cleaned_data = form.cleaned_data
-            direct_order, reverse_order = \
+            # direct_order, reverse_order = \
+            answers_keys = \
                 generate_order_answer(form_cleaned_data)
+            form_answers_keys = AnswersKeysForm(answers_keys)
+            form_answers_keys.save()
 
 
 
             context = {
                     'form': form,
-                     'direct_order': direct_order,
-                    'reverse_order': reverse_order
+                    #  'direct_order': direct_order,
+                    # 'reverse_order': reverse_order
                     }
             return render(request,'RV/rv_result.html', context=context)
 
