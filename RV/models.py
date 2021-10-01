@@ -59,8 +59,10 @@ class AnswersKeys(models.Model):
 
     rv_answers_keys = models.OneToOneField(RunicheskiyVosk, on_delete=models.CASCADE, primary_key=True)
 
-# class ManticKeys(models.Model):
-#     value_keys = # 'fehuuruz'
-#     value_name = # 'Феху - Уруз'
-#     value_mantic =
-#     value_protection =
+class ManticKeys(models.Model):
+    # ManyToManyField
+    value_keys = models.CharField(max_length=20)# 'fehuuruz'
+    value_name = models.CharField(max_length=20)# 'Феху - Уруз'
+    value_mantic = models.CharField(max_length=200)# мантическое значение в гадании
+    value_protection = models.CharField(max_length=200)# мантическое значение в сфере защиты
+    mantic_answers = models.ManyToManyField(AnswersKeys)
