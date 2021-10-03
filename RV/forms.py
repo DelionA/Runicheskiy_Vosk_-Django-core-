@@ -1,9 +1,8 @@
 
 from django import forms
-from .models import RunicheskiyVosk, AnswersKeys
+from .models import RunicheskiyVosk, ManticKeys
 from django.core.exceptions import ValidationError
 from .futark import Futark
-from django.core import validators
 from django.shortcuts import redirect
 
 class RunaForm(forms.ModelForm):
@@ -78,3 +77,23 @@ class RunaForm(forms.ModelForm):
 
             raise ValidationError('Седьмая Руна должна быть уникальна !')
         return runa_7
+
+
+class ManticForm(forms.ModelForm):
+    class Meta:
+        model = ManticKeys
+        fields = [
+            'value_keys',
+            'value_name',
+            'value_mantic',
+            'value_protection',
+            'mantic_answers'
+        ]
+
+        widgets = {
+            'value_keys': forms.TextInput(),
+            'value_name': forms.TextInput(),
+            'value_mantic': forms.TextInput(),
+            'value_protection': forms.TextInput(),
+            'mantic_answers': forms.TextInput()
+        }

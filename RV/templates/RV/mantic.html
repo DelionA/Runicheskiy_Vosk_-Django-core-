@@ -1,0 +1,12 @@
+{% extends 'RV/base.html'%}
+
+{% block content %}
+  {% csrf_token %}
+   {% for field in object_mantic %}
+   <form class="" action="index.html" method="post">
+      {{field.value_mantic }}
+      {{field.value_protection}}
+   </form>
+
+   {% endfor %}
+{% endblock %}
