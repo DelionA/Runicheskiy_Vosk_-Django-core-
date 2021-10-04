@@ -11,3 +11,41 @@ def auto_create_func(set_):
         value_mantic = "{} значение в мантике".format(i)
         value_protection = "{} значение в сфере защиты".format(i)
         obj_mk = ManticKeys.objects.create(**{'value_keys':value_keys,'value_name':value_name,'value_mantic':value_mantic,'value_protection':value_protection})
+
+
+##
+# заполнять мантические определения буду модудями
+# модуль = Руна
+# после заполнения модуля внесение информации в базу, в модель ManticKeys
+# блок будет состоять из кортежа (value_keys, value_name, value_mantic, value_protection)
+# 
+
+# value_keys 'fehuuruz'
+# value_name 'Феху - Уруз'
+
+# value_mantic
+# value_protection
+
+# 'fehuuruz',
+# 'fehuthurisaz',
+# 'fehuansuz',
+# 'fehuraido',
+# 'fehukaunaz',
+# 'fehugebo',
+# 'fehuwunjo',
+# 'fehuhagalaz',
+# 'fehunauthiz',
+# 'fehuisa',
+# 'fehujera',
+# 'fehueihwaz',
+# 'fehupertho',
+# 'fehualgiz',
+# 'fehusoulo',
+# 'fehuteiwaz',
+# 'fehuberkana',
+# 'fehuehwaz',
+# 'fehumannaz',
+# 'fehulaguz',
+# 'fehuinguz',
+# 'fehudagaz',
+# 'fehuodal',
