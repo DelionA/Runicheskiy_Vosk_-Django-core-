@@ -27,8 +27,13 @@
       </div>
     </div>
 
-    <button type="submit" name="button">Вернуться</button>
+    <button type="submit" name="button_back">Вернуться</button>
+
   </form>
+  <form class="container mt-2" action="{% url 'rv_result' %}" method="post">
+    <button type="submit" name="button_send">Отправить</button>
+  </form>
+
     {% for mantic_field in obj_form.mantickeys_set.values %}
       <div class="card container mt-3">
         <div class="row card-header">
@@ -39,7 +44,7 @@
 
         </div>
         <div class="row mt-2">
-          
+
           <div class="col">
             {{ mantic_field.value_mantic }}
 
